@@ -1,4 +1,8 @@
-@vite(['resources/css/app.css', 'resources/js/app.js']) 
+@extends('layouts.app')
+
+@section('title', 'Welcome')
+
+@section('content')
 
 <button type="button" class="btn btn-primary">Primary</button>
 <button type="button" class="btn btn-secondary">Secondary</button>
@@ -10,3 +14,5 @@
 <button type="button" class="btn btn-dark">Dark</button>
 
 <button type="button" class="btn btn-link">Link</button>
+
+@endsection
