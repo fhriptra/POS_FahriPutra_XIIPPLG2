@@ -8,7 +8,7 @@ use App\Http\Controllers\DashboardController;
 Route::middleware('guest')->group(function (){
     Route::get('/login',[AuthController::class,'index'])->name('login');
     Route::post('/auth',[AuthController::class,'auth'])->name('auth');
-});
+});     
 
 //route yang bisa diakses ketika user sudah login
 Route::middleware('auth')->group(function (){
