@@ -4,7 +4,7 @@
     <label class="form-label">Nama</label>
     <input type="text" name="name"
            class="form-control @error('name') is-invalid @enderror"
-           value="{{ old('name' ?? '') }}">
+           value="{{ old('name', $user->name ?? '') }}">
     @error ('name')
         <div class="invalid-feedback">
             {{ $message }}
@@ -16,7 +16,7 @@
     <label class="form-label">Email</label>
     <input type="email" name="email"
            class="form-control @error('email') is-invalid @enderror"
-           value="{{ old('email' ?? '' ) }}">
+           value="{{ old('email', $user->email ?? '' ) }}">
     @error ('email')
         <div class="invalid-feedback">
             {{ $message }}

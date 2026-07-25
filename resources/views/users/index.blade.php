@@ -26,11 +26,11 @@
       <td>{{ $user->email }}</td>
       <td>{{ $user->role->name }}</td>
       <td>
-        <a href="" class="btn btn-sm btn-info">
+        <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-sm btn-info">
             Edit
         </a>
         ||
-        <form action="" method="" class="d-inline">
+        <form action="{{ route('admin.users.destroy', $user) }}" method="post" class="d-inline">
             @csrf
             @method('DELETE')
             <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">
