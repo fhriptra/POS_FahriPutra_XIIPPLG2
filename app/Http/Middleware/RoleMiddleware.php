@@ -20,7 +20,7 @@ class RoleMiddleware
                 ->withErrors(['You must be logged in to access this page.']);
         }
 
-        $userRole = $request->user()->role;
+        $userRole = $request->user()->role->name;
 
         if (!in_array($userRole, $roles)) {
             abort(403, 'Unauthorized action.');
