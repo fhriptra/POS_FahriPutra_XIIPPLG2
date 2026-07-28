@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SearchRequest;
 use App\Http\Requests\User\StoreRequest;
 use App\Http\Requests\User\UpdateRequest;
 use App\Models\Role;
@@ -14,9 +15,17 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(SearchRequest $request)
     {
-        $users = User::latest()->paginate(10)->withQueryString();
+        $keyword = $request->input('search');
+
+        if($keyword) {
+            $users = User::whereRaw("MATCH(name, email) AGAINST(? IN BOOLEAN MODE)", [$keyword])
+            ->paginate(10)
+            ->withQueryString();
+        } else {
+            $users = User::latest()->paginate(10)->withQueryString();
+        }
 
         return view("users.index", compact("users"));
     }

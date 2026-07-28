@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit User')
+@section('title', 'Tambah Produk')
 
 @section('content')
 
@@ -8,11 +8,11 @@
     <div class="col-md-8">
         <div class="card border-0 shadow-sm rounded-3">
             <div class="card-header bg-white py-3">
-                <h5 class="m-0 fw-bold">Edit User</h5>
+                <h5 class="m-0 fw-bold">Tambah Produk</h5>
             </div>
             <div class="card-body p-4">
-                <form action="{{ route('admin.users.update', $user) }}" method="post">
-                    @include('users._form')
+                <form action="{{ route('admin.produk.store') }}" method="post" enctype="multipart/form-data">
+                    @include('Produk._form')
                 </form>
             </div>
         </div>

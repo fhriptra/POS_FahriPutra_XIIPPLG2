@@ -1,9 +1,10 @@
 @csrf
 
 <div class="mb-3">
-    <label class="form-label">Nama</label>
+    <label class="form-label fw-semibold">Nama Lengkap</label>
     <input type="text" name="name"
            class="form-control @error('name') is-invalid @enderror"
+           placeholder="Masukkan nama"
            value="{{ old('name', $user->name ?? '') }}">
     @error ('name')
         <div class="invalid-feedback">
@@ -13,9 +14,10 @@
 </div>
 
 <div class="mb-3">
-    <label class="form-label">Email</label>
+    <label class="form-label fw-semibold">Alamat Email</label>
     <input type="email" name="email"
            class="form-control @error('email') is-invalid @enderror"
+           placeholder="nama@email.com"
            value="{{ old('email', $user->email ?? '' ) }}">
     @error ('email')
         <div class="invalid-feedback">
@@ -25,8 +27,9 @@
 </div>
 
 <div class="mb-3">
-    <label class="form-label">Password</label>
+    <label class="form-label fw-semibold">Password</label>
     <input type="password" name="password"
+           placeholder="••••••••"
            class="form-control @error('password') is-invalid @enderror">
     @error ('password')
         <div class="invalid-feedback">
@@ -35,8 +38,8 @@
     @enderror
 </div>
 
-<div class="mb-3">
-    <label class="form-label">Role</label>
+<div class="mb-4">
+    <label class="form-label fw-semibold">Role User</label>
     <select class="form-select @error('role_id') is-invalid @enderror" name="role_id">
         <option value="">-- Pilih Role --</option>
         @foreach($roles as $role)
@@ -53,5 +56,7 @@
     @enderror
 </div>
 
-<button class="btn btn-success">Simpan</button>
-<a href="{{ route('admin.users') }}" class="btn btn-secondary">Kembali</a>
+<div class="d-flex gap-2">
+    <button class="btn btn-primary"><i class="bi bi-save me-1"></i> Simpan Data</button>
+    <a href="{{ route('admin.users') }}" class="btn btn-light border">Batal</a>
+</div>
