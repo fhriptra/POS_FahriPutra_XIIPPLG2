@@ -17,7 +17,7 @@
                 <i class="bi bi-people"></i> Users
             </a>
         @endcan
-        <a href="{{ route('admin.produk.index') }}" 
+        <a href="{{ route('produk.index') }}" 
            class="list-group-item list-group-item-action d-flex align-items-center gap-2 {{ request()->routeIs('admin.produk*') ? 'active' : '' }}">
             <i class="bi bi-box-seam"></i> Produk
         </a>

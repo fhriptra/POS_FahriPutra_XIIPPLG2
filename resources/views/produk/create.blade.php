@@ -11,7 +11,7 @@
                 <h5 class="m-0 fw-bold">Tambah Produk</h5>
             </div>
             <div class="card-body p-4">
-                <form action="{{ route('admin.produk.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('produk.store') }}" method="post" enctype="multipart/form-data">
                     @include('Produk._form')
                 </form>
             </div>

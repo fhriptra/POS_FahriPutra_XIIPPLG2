@@ -12,7 +12,7 @@
     <div class="col">
         <div>
             <label>Gambar</label>
-            <input type="file" name="foto" class="form-control @error('foto') is-invalid @enderror">
+            <input type="file" name="foto" accept="image/*" onchange="previewImage(this)" class="form-control @error('foto') is-invalid @enderror">
             @error('foto')
                 <div class="invalid-feedback d-block">
                     {{ $message }}
@@ -82,4 +82,4 @@
     }
 </script>
 
-<a href="{{ route('admin.produk.index') }}" class="btn btn-secondary mt-3">Kembali</a>
+<a href="{{ route('produk.index') }}" class="btn btn-secondary mt-3">Kembali</a>
