@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SearchRequest;
 use App\Models\Penjualan;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,7 +44,21 @@ class PenjualanController extends Controller
      */
     public function create()
     {
-        //
+        $sale = Penjualan::firstOrCreate(
+            [
+                'user_id' => Auth::id(),
+                'status' => 'OPEN'
+            ],
+            [
+                'total_pembayaran' => 0,
+                'metode_pembayaran' => 'CASH'
+            ]
+        );
+
+        $products = Produk::orderBy('nama')->get();
+        $mode = 'create';
+
+        return view('penjualan.pos', compact('sale','products','mode'));
     }
 
     /**
