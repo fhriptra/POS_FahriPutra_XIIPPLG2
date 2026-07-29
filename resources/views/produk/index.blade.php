@@ -53,6 +53,10 @@
         <td>{{ $product->harga_jual }}</td>
         <td>{{ $product->stok }}</td>
         <td class="d-flex gap-1">
+            @can('view', $product)
+                <a href="{{ route('produk.show', $product) }}" class="btn btn-info">Detail</a>
+            @endcan
+            ||
             @can('update', $product)
                 <a href="{{ route('produk.edit', $product) }}" class="btn btn-warning">Edit</a>
             @endcan

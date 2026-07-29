@@ -69,9 +69,11 @@ class ProdukController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Produk $produk)
     {
-        //
+        $this->authorize('view', $produk);
+
+        return view('produk.show', compact('produk'));
     }
 
     /**
