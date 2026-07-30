@@ -21,5 +21,9 @@
            class="list-group-item list-group-item-action d-flex align-items-center gap-2 {{ request()->routeIs('admin.produk*') ? 'active' : '' }}">
             <i class="bi bi-box-seam"></i> Produk
         </a>
+        <a href="{{ route('penjualan.index') }}" 
+           class="list-group-item list-group-item-action d-flex align-items-center gap-2 {{ request()->routeIs('admin.produk*') ? 'active' : '' }}">
+            <i class="bi bi-box-seam"></i> Penjualan
+        </a>
     </div>
 </div>

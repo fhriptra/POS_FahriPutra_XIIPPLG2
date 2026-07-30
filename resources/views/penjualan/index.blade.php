@@ -4,6 +4,12 @@
 
 @section('content')
 
+@if(session('errors'))
+    <div class="alert alert-danger">
+        {{ session('errors') }}
+    </div>
+@endif
+
 <h1>Halaman Penjualan</h1>
 
 <a href="{{ route('penjualan.create') }}" class="btn btn-primary mb-3">Create</a>
@@ -41,21 +47,25 @@
             <th scope="row">{{ $sales->firstItem() + $loop->index }}</th>
             <td>{{ $sale->created_at->translatedFormat('d-m-y H:i:s') }}</td>
             <td>{{ $sale->user->name }}</td>
-            <td>Rp.{{ $sale->total_pembayaran }}</td>
+            <td>Rp.{{ number_format($sale->total_pembayaran) }}</td>
             <td>{{ $sale->metode_pembayaran }}</td>
             <td>{{ $sale->status }}</td>
             <td class="d-flex gap-1">
                 <a href="" class="btn btn-primary">Detail</a>
+                @can('view', $sale)
                 |
-                <a href="" class="btn btn-warning">Edit</a>
+                <a href="{{ route('penjualan.edit', $sale) }}" class="btn btn-warning">Edit</a>
+                @endcan
+                @can('delete', $sale)
                 |
-                <form action="" method="" class="d-inline">
+                <form action="{{ route('penjualan.destroy', $sale) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger" onclick="return confirm('Apakah anda yakin akan menghapus penjualan ini?')">
                         Hapus
                     </button>
                 </form>
+                @endcan
             </td>
         </tr>
         @empty
