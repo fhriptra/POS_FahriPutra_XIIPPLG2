@@ -7,39 +7,64 @@
     <!-- Bootstrap 5 CSS & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --accent: #5b5fef;
+            --accent-dark: #4547c9;
+            --accent-cyan: #22d3ee;
+            --sidebar-bg: #14162b;
+        }
+        * { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        h1, h2, h3, h4, h5, .brand-font { font-family: 'Space Grotesk', sans-serif; }
+
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://img.magnific.com/free-vector/online-videogame-controller-background-with-text-space_1017-54747.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: var(--sidebar-bg);
             min-height: 100vh;
         }
+
         .login-card {
             border: none;
-            border-radius: 1rem;
+            border-radius: 1.1rem;
             overflow: hidden;
-            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25);
+            box-shadow: 0 1.5rem 4rem rgba(0,0,0,.35);
         }
+
         .brand-section {
-            background: linear-gradient(135deg, #000e5a 0%, #120ee6 100%);
-            color: #ffffff;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,.08), transparent 45%),
+                linear-gradient(135deg, #14162b 0%, #23265a 60%, #3a2f8f 100%);
+            color: #fff;
+            position: relative;
         }
+        .brand-badge {
+            width: 42px; height: 42px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-cyan));
+            display: flex; align-items: center; justify-content: center;
+        }
+        .brand-badge i { font-size: 1.3rem; color: #fff; }
+
+        .form-control { border-radius: 9px; }
         .form-control:focus {
-            border-color: #0262c9;
-            box-shadow: 0 0 0 0.25rem rgba(2, 98, 201, 0.15);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 0.2rem rgba(91, 95, 239, 0.15);
         }
+        .input-group-text { border-radius: 9px 0 0 9px; }
+        .input-group .form-control { border-radius: 0 9px 9px 0; }
+
         .btn-primary {
-            background-color: #0c5ab9;
-            border-color: #0262c9;
+            background-color: var(--accent);
+            border-color: var(--accent);
             padding: 0.75rem 1rem;
             font-weight: 600;
+            border-radius: 9px;
         }
         .btn-primary:hover {
-            background-color: #0a4896;
-            border-color: #0256b3;
+            background-color: var(--accent-dark);
+            border-color: var(--accent-dark);
         }
     </style>
 </head>
@@ -53,12 +78,12 @@
                     <!-- Kolom Kiri: Branding / Info POS -->
                     <div class="col-lg-6 d-none d-lg-flex flex-column justify-content-between p-5 brand-section">
                         <div class="d-flex align-items-center gap-2">
-                            <i class="bi bi-joystick fs-3 text-warning"></i>
-                            <span class="fs-4 fw-bold">GameKu POS</span>
+                            <div class="brand-badge"><i class="bi bi-joystick"></i></div>
+                            <span class="fs-4 fw-bold brand-font">GameKu POS</span>
                         </div>
-                        
+
                         <div class="my-auto pe-4">
-                            <h2 class="fw-bold mb-3">Level Up Transaksi & Stok Game Kamu.</h2>
+                            <h2 class="fw-bold mb-3 brand-font">Level Up Transaksi &amp; Stok Game Kamu.</h2>
                             <p class="text-white-50 lead fs-6">
                                 Kelola kaset game, konsol, hingga <em>gaming gear</em> dalam satu sistem kasir yang cepat dan presisi.
                             </p>
@@ -75,10 +100,10 @@
                             <!-- Header Form -->
                             <div class="text-center text-lg-start mb-4">
                                 <div class="d-lg-none d-inline-flex align-items-center gap-2 mb-3">
-                                    <i class="bi bi-joystick fs-2 text-primary"></i>
-                                    <span class="fs-3 fw-bold">GameKu POS</span>
+                                    <div class="brand-badge"><i class="bi bi-joystick"></i></div>
+                                    <span class="fs-3 fw-bold brand-font">GameKu POS</span>
                                 </div>
-                                <h3 class="fw-bold text-dark mb-1">Selamat Datang</h3>
+                                <h3 class="fw-bold mb-1 brand-font">Selamat Datang</h3>
                                 <p class="text-muted small">Masukkan akun kasir atau admin untuk masuk</p>
                             </div>
 

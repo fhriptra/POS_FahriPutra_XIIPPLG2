@@ -4,20 +4,39 @@
 
 @section('content')
 
-<h1>Detail Produk</h1>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card overflow-hidden">
+            @if(!empty($produk->foto))
+                <img src="{{ asset('storage/'.$produk->foto) }}" class="card-img-top" style="max-height:320px; object-fit:cover;" alt="{{ $produk->nama }}">
+            @endif
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">{{ $produk->nama }}</h4>
 
-<div class="card" style="max-width: 500px;">
-    @if(!empty($produk->foto))
-        <img src="{{ asset('storage/'.$produk->foto) }}" class="card-img-top" alt="{{ $produk->nama }}">
-    @endif
-    <div class="card-body">
-        <h5 class="card-title">{{ $produk->nama }}</h5>
-        <p class="card-text mb-1"><strong>User:</strong> {{ $produk->user->name }}</p>
-        <p class="card-text mb-1"><strong>Harga Beli:</strong> Rp {{ number_format($produk->harga_beli, 0, ',', '.') }}</p>
-        <p class="card-text mb-1"><strong>Harga Jual:</strong> Rp {{ number_format($produk->harga_jual, 0, ',', '.') }}</p>
-        <p class="card-text mb-3"><strong>Stok:</strong> {{ $produk->stok }}</p>
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item d-flex justify-content-between px-0">
+                        <span class="text-muted">Ditambahkan oleh</span>
+                        <span class="fw-semibold">{{ $produk->user->name }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between px-0">
+                        <span class="text-muted">Harga Beli</span>
+                        <span class="fw-semibold">Rp {{ number_format($produk->harga_beli, 0, ',', '.') }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between px-0">
+                        <span class="text-muted">Harga Jual</span>
+                        <span class="fw-semibold text-primary">Rp {{ number_format($produk->harga_jual, 0, ',', '.') }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between px-0">
+                        <span class="text-muted">Stok</span>
+                        <span class="badge bg-{{ $produk->stok <= 0 ? 'danger' : ($produk->stok <= 5 ? 'warning text-dark' : 'success') }}">{{ $produk->stok }} unit</span>
+                    </li>
+                </ul>
 
-        <a href="{{ route('produk.index') }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ route('produk.index') }}" class="btn btn-light border">
+                    <i class="bi bi-arrow-left me-1"></i> Kembali
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 

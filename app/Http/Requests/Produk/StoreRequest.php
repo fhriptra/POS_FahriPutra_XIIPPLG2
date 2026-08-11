@@ -25,6 +25,7 @@ class StoreRequest extends FormRequest
         return [
             'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'name' => 'required|string|max:255',
+            'jenis_produk_id' => 'nullable|exists:jenis_produk,id',
             'purchase_price' => 'required|integer|min:0',
             'selling_price' => 'required|integer|min:0',
             'stock' => 'required|integer|min:0',
@@ -41,6 +42,7 @@ class StoreRequest extends FormRequest
             'email.email' => 'Format email tidak valid.',
             'purchase_price.required' => 'Purchase Price wajib diisi.',
             'purchase_price.integer' => 'Purchase Price harus diisi bilangan bulat.',
+            'jenis_produk_id.exists' => 'Jenis produk tidak valid.',
             'selling_price.required' => 'Selling Price wajib diisi.',
             'selling_price.integer' => 'Selling Price harus diisi bilangan bulat.',
             'stock.required' => 'Stock wajib diisi.',

@@ -22,16 +22,15 @@ class ProdukController extends Controller
 
             $keyword = $request->input('search');
 
+            $query = Produk::with(['user', 'jenisProduk']);
+
             if ($keyword) {
-                $products = Produk::when($keyword, function ($query) use ($keyword) {
-                    $query->where('nama','like','%'. $keyword .'%');
-                })
-                ->orderBy('nama')
-                ->paginate(10)
-                ->withQueryString();
-        } else {
-            $products = Produk::latest()->paginate(10)->withQueryString();
-        }
+                $query->where('nama', 'like', '%'. $keyword .'%')->orderBy('nama');
+            } else {
+                $query->latest();
+            }
+
+            $products = $query->paginate(10)->withQueryString();
 
         return view('produk.index', compact('products'));
     }
@@ -41,7 +40,8 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        return view('produk.create');
+        $jenis = \App\Models\JenisProduk::orderBy('nama')->get();
+        return view('produk.create', compact('jenis'));
     }
 
     /**
@@ -53,6 +53,7 @@ class ProdukController extends Controller
 
         $data['user_id'] = Auth::id();
         $data['nama'] = $dataReq['name'];
+        $data['jenis_produk_id'] = $dataReq['jenis_produk_id'] ?? null;
         $data['harga_beli'] = $dataReq['purchase_price'];
         $data['harga_jual'] = $dataReq['selling_price'];
         $data['stok'] = $dataReq['stock'] ?? true;
@@ -83,7 +84,8 @@ class ProdukController extends Controller
     {
         $this->authorize('update', $produk);
 
-        return view('produk.edit', compact('produk'));
+        $jenis = \App\Models\JenisProduk::orderBy('nama')->get();
+        return view('produk.edit', compact('produk', 'jenis'));
     }
 
     /**
@@ -98,6 +100,7 @@ class ProdukController extends Controller
         $data = [
             'user_id'     => Auth::id(),
             'nama'        => $dataReq['name'],
+            'jenis_produk_id' => $dataReq['jenis_produk_id'] ?? null,
             'harga_beli'  => $dataReq['purchase_price'],
             'harga_jual'  => $dataReq['selling_price'],
             'stok'        => $dataReq['stock'],

@@ -5,10 +5,10 @@
 @section('content')
 
 <div class="row justify-content-center">
-    <div class="col-md-8">
-        <div class="card border-0 shadow-sm rounded-3">
+    <div class="col-md-9">
+        <div class="card">
             <div class="card-header bg-white py-3">
-                <h5 class="m-0 fw-bold">Tambah Produk</h5>
+                <h5 class="m-0 fw-bold"><i class="bi bi-plus-circle me-2 text-primary"></i>Tambah Produk</h5>
             </div>
             <div class="card-body p-4">
                 <form action="{{ route('produk.store') }}" method="post" enctype="multipart/form-data">

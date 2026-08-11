@@ -4,16 +4,14 @@
 
 @section('content')
 
-<div class="bg-white text-dark p-4 rounded-3 mb-4 shadow-sm">
-    <div class="d-flex justify-content-between align-items-center">
-        <div>
-            <h3 class="fw-bold mb-1 text-dark">
-                <i class="bi bi-speedometer2 me-2 text-primary"></i>Ringkasan Hari Ini
-            </h3>
-            <p class="text-dark-50 small mb-0">
-                <i class="bi bi-calendar-event me-1"></i>{{ $tanggalHariIni->translatedFormat('l, d F Y') }}
-            </p>
-        </div>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h3 class="fw-bold mb-1">
+            <i class="bi bi-speedometer2 me-2 text-primary"></i>Ringkasan Hari Ini
+        </h3>
+        <p class="text-muted small mb-0">
+            <i class="bi bi-calendar-event me-1"></i>{{ $tanggalHariIni->translatedFormat('l, d F Y') }}
+        </p>
     </div>
 </div>
 
@@ -21,34 +19,54 @@
 <!-- Ringkasan Penjualan & Transaksi -->
 <div class="row g-3 mb-4">
     <div class="col-md-6 col-xl-3">
-        <div class="card border-0 shadow-sm rounded-3">
-            <div class="card-body">
-                <span class="text-muted small fw-semibold">TOTAL NILAI PENJUALAN</span>
-                <h3 class="text-primary fw-bold mt-2 mb-0">Rp {{ number_format($ringkasan['total_penjualan']) }}</h3>
+        <div class="card">
+            <div class="card-body d-flex align-items-start gap-3">
+                <div class="stat-icon" style="background: var(--accent-soft);">
+                    <i class="bi bi-cash-stack text-primary"></i>
+                </div>
+                <div>
+                    <span class="text-muted small fw-semibold">TOTAL NILAI PENJUALAN</span>
+                    <h4 class="fw-bold mt-1 mb-0">Rp {{ number_format($ringkasan['total_penjualan']) }}</h4>
+                </div>
             </div>
         </div>
     </div>
     <div class="col-md-6 col-xl-3">
-        <div class="card border-0 shadow-sm rounded-3">
-            <div class="card-body">
-                <span class="text-muted small fw-semibold">JUMLAH TRANSAKSI</span>
-                <h3 class="text-dark fw-bold mt-2 mb-0">{{ $ringkasan['total_transaksi'] }}</h3>
+        <div class="card">
+            <div class="card-body d-flex align-items-start gap-3">
+                <div class="stat-icon" style="background: #f1f2fb;">
+                    <i class="bi bi-receipt-cutoff" style="color:#4b4f6b;"></i>
+                </div>
+                <div>
+                    <span class="text-muted small fw-semibold">JUMLAH TRANSAKSI</span>
+                    <h4 class="fw-bold mt-1 mb-0">{{ $ringkasan['total_transaksi'] }}</h4>
+                </div>
             </div>
         </div>
     </div>
     <div class="col-md-6 col-xl-3">
-        <div class="card border-0 shadow-sm rounded-3">
-            <div class="card-body">
-                <span class="text-muted small fw-semibold">PEMBAYARAN TUNAI</span>
-                <h3 class="text-success fw-bold mt-2 mb-0">Rp {{ number_format($ringkasan['total_cash']) }}</h3>
+        <div class="card">
+            <div class="card-body d-flex align-items-start gap-3">
+                <div class="stat-icon" style="background: #e9f9ef;">
+                    <i class="bi bi-wallet2" style="color: var(--success);"></i>
+                </div>
+                <div>
+                    <span class="text-muted small fw-semibold">PEMBAYARAN TUNAI</span>
+                    <h4 class="fw-bold mt-1 mb-0" style="color: var(--success);">Rp {{ number_format($ringkasan['total_cash']) }}</h4>
+                </div>
             </div>
         </div>
     </div>
     <div class="col-md-6 col-xl-3">
-        <div class="card border-0 shadow-sm rounded-3">
-            <div class="card-body">
-                <span class="text-muted small fw-semibold">PEMBAYARAN NON-TUNAI</span>
-                <h3 class="text-info fw-bold mt-2 mb-0">Rp {{ number_format($ringkasan['total_non_tunai']) }}</h3>
+        <div class="card">
+            <div class="card-body d-flex align-items-start gap-3">
+                <div class="stat-icon" style="background: #e6f7fb;">
+                    <i class="bi bi-qr-code" style="color: var(--info);"></i>
+                </div>
+                <div>
+                    <span class="text-muted small fw-semibold">PEMBAYARAN NON-TUNAI</span>
+                    <h4 class="fw-bold mt-1 mb-0" style="color: var(--info);">Rp {{ number_format($ringkasan['total_non_tunai']) }}</h4>
+                </div>
             </div>
         </div>
     </div>
@@ -58,14 +76,14 @@
 <!-- Critical Inventory Status -->
 <div class="row g-4 mb-4">
     <div class="col-12">
-        <h5 class="fw-bold mb-0 text-danger"><i class="bi bi-exclamation-triangle-fill me-2"></i>Critical Inventory Status</h5>
+        <h5 class="fw-bold mb-0" style="color: var(--danger);"><i class="bi bi-exclamation-triangle-fill me-2"></i>Status Stok Kritis</h5>
     </div>
-    
+
     <!-- Stok Rendah -->
     <div class="col-md-6">
-        <div class="card border-0 shadow-sm rounded-3">
+        <div class="card">
             <div class="card-header bg-white py-3">
-                <h6 class="m-0 fw-bold text-warning">Stok Item Rendah</h6>
+                <h6 class="m-0 fw-bold" style="color: var(--warning);">Stok Item Rendah</h6>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover align-middle mb-0">
@@ -85,8 +103,8 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3" class="text-muted text-center py-3">
-                                Seluruh produk dalam kondisi aman.
+                            <td colspan="3" class="text-muted text-center py-4">
+                                <i class="bi bi-check-circle text-success me-1"></i>Seluruh produk dalam kondisi aman.
                             </td>
                         </tr>
                     @endforelse
@@ -101,9 +119,9 @@
 
     <!-- Stok Habis -->
     <div class="col-md-6">
-        <div class="card border-0 shadow-sm rounded-3">
+        <div class="card">
             <div class="card-header bg-white py-3">
-                <h6 class="m-0 fw-bold text-danger">Produk Habis Stok</h6>
+                <h6 class="m-0 fw-bold" style="color: var(--danger);">Produk Habis Stok</h6>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover align-middle mb-0">
@@ -123,8 +141,8 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3" class="text-muted text-center py-3">
-                                Seluruh produk dalam kondisi aman.
+                            <td colspan="3" class="text-muted text-center py-4">
+                                <i class="bi bi-check-circle text-success me-1"></i>Seluruh produk dalam kondisi aman.
                             </td>
                         </tr>
                     @endforelse
@@ -141,9 +159,9 @@
 <!-- Best Selling Products -->
 <div class="row">
     <div class="col-12">
-        <div class="card border-0 shadow-sm rounded-3">
+        <div class="card">
             <div class="card-header bg-white py-3">
-                <h6 class="m-0 fw-bold text-primary"><i class="bi bi-graph-up-arrow me-2"></i>Best Selling Products</h6>
+                <h6 class="m-0 fw-bold text-primary"><i class="bi bi-graph-up-arrow me-2"></i>Produk Terlaris</h6>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover align-middle mb-0">
@@ -153,7 +171,7 @@
                             <th>Stok Tersedia</th>
                             <th>Unit Terjual</th>
                         </tr>
-                    </thead> 
+                    </thead>
                     <tbody>
                         @forelse ($produkTerlaris as $produk)
                             <tr>
@@ -163,12 +181,12 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3" class="text-muted text-center py-3">
+                                <td colspan="3" class="text-muted text-center py-4">
                                     Belum ada data produk terlaris.
                                 </td>
                             </tr>
                         @endforelse
-                    </tbody>   
+                    </tbody>
                 </table>
             </div>
         </div>
