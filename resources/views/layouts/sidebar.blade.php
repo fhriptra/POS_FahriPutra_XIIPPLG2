@@ -31,5 +31,9 @@
            class="list-group-item list-group-item-action d-flex align-items-center gap-2 {{ request()->routeIs('admin.produk*') ? 'active' : '' }}">
             <i class="bi bi-receipt"></i> <span>Penjualan</span>
         </a>
+        <a href="{{ route('jenis.index') }}"
+        class="list-group-item list-group-item-action d-flex align-items-center gap-2 {{ request()->routeIs('admin.jenis*') ? 'active' : '' }}">
+            <i class="bi bi-tags"></i> <span>Jenis Produk</span>
+        </a>
     </div>
 </div>
