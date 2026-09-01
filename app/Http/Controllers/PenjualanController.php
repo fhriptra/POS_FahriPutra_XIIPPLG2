@@ -86,7 +86,9 @@ class PenjualanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $sale = Penjualan::with(['user', 'itemPenjualan.produk'])->findOrFail($id);
+
+        return view('penjualan.show', compact('sale'));
     }
 
     /**

@@ -71,7 +71,7 @@
                     </td>
                     <td class="text-end">
                         <div class="d-flex gap-1 justify-content-end">
-                            <a href="" class="btn btn-sm btn-outline-primary">Detail</a>
+                            <a href="{{ route('penjualan.show', $sale) }}" class="btn btn-sm btn-outline-primary">Detail</a>
                             @can('view', $sale)
                                 <a href="{{ route('penjualan.edit', $sale) }}" class="btn btn-sm btn-outline-warning">Edit</a>
                             @endcan
