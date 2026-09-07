@@ -52,14 +52,14 @@
                         </span>
                     </td>
                     <td class="text-end">
-                        <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-sm btn-outline-warning me-1">
-                            <i class="bi bi-pencil"></i> Edit
-                        </a>
+                            <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-sm btn-outline-warning">
+                                <i class="bi bi-pencil"></i>
+                            </a>
                         <form action="{{ route('admin.users.destroy', $user) }}" method="post" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus user ini?')">
-                                <i class="bi bi-trash"></i> Hapus
+                            <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Apakah Anda yakin akan menghapus user ini?')">
+                                <i class="bi bi-trash"></i>
                             </button>
                         </form>
                     </td>
