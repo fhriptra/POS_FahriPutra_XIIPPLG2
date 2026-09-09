@@ -2,7 +2,8 @@
   <img src="docs/screenshots/logo.png" width="90" alt="GameKu POS Logo">
 </p>
 
-<h1 align="center">🎮 GameKu POS</h1>
+<h1 align="center">🎮 GameKu</h1>
+<h2 align="center">POINT OF SALE</h2>
 <p align="center"><i>Level Up Transaksi & Stok Game Kamu.</i></p>
 
 <p align="center">
