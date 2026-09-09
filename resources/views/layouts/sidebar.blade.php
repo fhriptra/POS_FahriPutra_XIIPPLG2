@@ -4,7 +4,7 @@
             <i class="bi bi-joystick"></i>
         </div>
         <div>
-            <div class="brand-name fs-2">GameKu POS</div>
+            <div class="brand-name fs-2">GameKu</div>
             <div class="brand-sub">POINT OF SALE</div>
         </div>
     </div>
