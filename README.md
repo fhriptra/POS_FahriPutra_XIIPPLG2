@@ -51,8 +51,6 @@ GameKu POS membantu toko beralih dari pencatatan manual di buku menjadi sistem d
 |---|---|
 | ![Jenis Produk](docs/screenshots/jenis-produk.webp) | ![Users](docs/screenshots/users.webp) |
 
-> 💡 Taruh file screenshot kamu di folder `docs/screenshots/` dengan nama sesuai di atas agar gambar tampil otomatis di halaman GitHub.
-
 ---
 
 ## 🧩 Use Case Diagram
