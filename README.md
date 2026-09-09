@@ -40,15 +40,15 @@ GameKu POS membantu toko beralih dari pencatatan manual di buku menjadi sistem d
 
 | Login | Dashboard |
 |---|---|
-| ![Login](docs/screenshots/login.png) | ![Dashboard](docs/screenshots/dashboard.png) |
+| ![Login](docs/screenshots/login.webp) | ![Dashboard](docs/screenshots/dashboard.webp) |
 
 | Manajemen Produk | Transaksi Penjualan (POS) |
 |---|---|
-| ![Produk](docs/screenshots/produk.png) | ![POS](docs/screenshots/pos.png) |
+| ![Produk](docs/screenshots/produk.webp) | ![POS](docs/screenshots/pos.png) |
 
 | Manajemen Jenis Produk | Manajemen User |
 |---|---|
-| ![Jenis Produk](docs/screenshots/jenis-produk.png) | ![Users](docs/screenshots/users.png) |
+| ![Jenis Produk](docs/screenshots/jenis-produk.webp) | ![Users](docs/screenshots/users.webp) |
 
 > 💡 Taruh file screenshot kamu di folder `docs/screenshots/` dengan nama sesuai di atas agar gambar tampil otomatis di halaman GitHub.
 
@@ -57,7 +57,7 @@ GameKu POS membantu toko beralih dari pencatatan manual di buku menjadi sistem d
 ## 🧩 Use Case Diagram
 
 <p align="center">
-  <img src="docs/screenshots/usecase-diagram.png" width="600" alt="Use Case Diagram GameKu POS">
+  <img src="docs/screenshots/usecase-diagram.webp" width="600" alt="Use Case Diagram GameKu POS">
 </p>
 
 ---
@@ -89,7 +89,7 @@ Aplikasi ini menggunakan basis data **`pos_fahri`** dengan 6 tabel inti:
 | `item_penjualan` | Detail item pada setiap transaksi |
 
 <p align="center">
-  <img src="docs/screenshots/erd.png" width="600" alt="ERD GameKu POS">
+  <img src="docs/screenshots/erd.webp" width="600" alt="ERD GameKu POS">
 </p>
 
 ---
